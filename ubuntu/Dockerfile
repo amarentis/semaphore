@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-ENV SEMAPHORE_VERSION="2.3.0" SEMAPHORE_ARCH="linux_amd64"
+ENV SEMAPHORE_VERSION="2.4.1" SEMAPHORE_ARCH="linux_amd64"
 
 RUN apt-get clean && \
     apt-get update && \
@@ -23,7 +23,7 @@ RUN apt-get clean && \
                     chmod +x /usr/bin/semaphore && \
                     mkdir -p /etc/semaphore/playbooks
 
-RUN pip install ansible "pywinrm>=0.2.2"
+RUN pip install ansible "pywinrm>=0.2.2" pywinrm[kerberos]
 
 EXPOSE 3000
 
