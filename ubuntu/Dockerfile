@@ -2,6 +2,8 @@ FROM ubuntu:xenial
 
 ENV SEMAPHORE_VERSION="2.4.1" SEMAPHORE_ARCH="linux_amd64"
 
+ADD ./ubuntu/krb5.conf /etc/krb5.conf
+
 RUN apt-get clean && \
     apt-get update && \
     apt-get install -y git \
