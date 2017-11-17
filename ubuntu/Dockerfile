@@ -6,6 +6,13 @@ ADD ./ubuntu/krb5.conf /etc/krb5.conf
 
 RUN apt-get clean && \
     apt-get update && \
+    apt-get install -y python-crypto software-properties-common python-software-properties && \
+    add-apt-repository ppa:ansible/ansible -y
+
+ADD ./ubuntu/ansible-ubuntu-ansible-xenial.list /etc/apt/sources.list.d/ansible-ubuntu-ansible-xenial.list
+
+RUN apt-get clean && \
+    apt-get update && \
     apt-get install -y git \
                     locales \
                     apt-utils \
